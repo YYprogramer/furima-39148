@@ -29,26 +29,23 @@
 | send_time_id     | integer    | null: false       | <!-- 発送までの日数 >
 | category_id      | integer    | null: false       |
 | price            | integer    | null: false       |
-| selling_fee      | integer    | null: false       | <!-- 販売手数料     >
-| profit           | float      | null: false       | <!-- 販売利益       >
-| user             | references | foreign_key: true |
+| user             | references | null: false, foreign_key: true |
 +------------------+-----------+--------------------+
 ## association
-
 - belongs_to :user
-- belongs_to :purchases
+- has_one :purchase
 - has_one_attached :image
 
 ## purchases テーブル
 +--------------------+------------+-------------------+
 |  purchases         | type       | options           | <!-- 購入 >
 +--------------------+------------+-------------------+
-| items              | references | foreign_key: true |
-| users              | references | foreign_key: true |
+| item               | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
 +--------------------+------------+-------------------+
 ## association
-- belongs_to :items
-- has_one :shipping_addresses
+- belongs_to :item
+- has_one :shipping_address
 
 ## sipping_addresses テーブル
 +------------------+------------+-------------------+
@@ -60,7 +57,7 @@
 | street_address   | string     | null: false       | <!-- 地番 >
 | building         | string     |                   |
 | phone_number     | string     | null: false       |
-| purchases        | references | foreign_key: true |
+| purchase        | references | null: false, foreign_key: true |
 +------------------+------------+-------------------+
 ## association
-- bellongs_to : purchases
+- bellongs_to : purchase
