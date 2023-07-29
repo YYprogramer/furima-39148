@@ -1,154 +1,64 @@
 #テーブル設計
 
-## user テーブル
-+------------------+
-|      ユーザー    |type       |options                       |
-+------------------+
-| ニックネーム     |
-| メールアドレス   |
-| パスワード       |
-| 名前（漢字）     |
-| 名前（カナ）     |
-| 生年月日         |
-+------------------+
+## users テーブル
++-----------------------+--------+---------------------------+
+|      users            | type   | options                   |
++-----------------------+--------+---------------------------+
+| nickname              | string | null: false               |
+| email                 | string | null: false ,unique: true |
+| encrypted_password    | string | null: false               |
+| family_name_kanji     | string | null: false               | 
+| given_name_kanji      | string | null: false               | 
+| family_name_kana      | string | null: false               |
+| given_name_kana       | string | null: false               |
+| birthday              | date   | null: false               |
++-----------------------+--------+---------------------------+
 ## association
-- has_many :sellers
-- has_many :buyers
-- has_many :comments
-- has_many :favorites
+- has_many :items
+- has_many :purchases
 
 ## items テーブル
-+------------------+
-|      商品        |type       |options                       |
-+------------------+
-| 商品画像         |
-| 商品名           |
-| 商品説明         |
-| 商品状態         |
-| 発送料の負担     |
-| 発送元地域       |
-| 発送までの日数   |
-| 販売価格         |
-| 販売手数料       |
-| 販売利益         |
-| 出品者ID         |
-| カテゴリーID     |
-| 売り切れフラグ   |
-+------------------+
++------------------+-----------+--------------------+
+|      items       | type       | options           |
++------------------+-----------+--------------------+
+| name             | string     | null: false       |
+| description      | text       | null: false       | <!-- 商品説明       >
+| condition_id     | integer    | null: false       | <!-- 商品状態       >
+| send_cost_id     | integer    | null: false       | <!-- 送料料の負担   >
+| send_origin_id   | integer    | null: false       | <!-- 発送元の地域   >
+| send_time_id     | integer    | null: false       | <!-- 発送までの日数 >
+| category_id      | integer    | null: false       |
+| price            | integer    | null: false       |
+| user             | references | null: false, foreign_key: true |
++------------------+-----------+--------------------+
 ## association
-- belongs_to :sellers
-- belongs_to :buyers
-- has_many :favorites
-- has_many :comments
-- has_many :item_categories
-- has_many :categories, through: :item_categories
-- belongs_to :purchases
+- belongs_to :user
+- has_one :purchase
 - has_one_attached :image
 
-## sellers テーブル
-+------------------+
-|    出品者        |type       |options                       |
-+------------------+
-| ユーザーID       |
-+------------------+
-## association
-- belongs_to :users
-- has_many :items
-- belongs_to :purchases
-
-## buyers テーブル
-+------------------+
-|    購入者        |type       |options                       |
-+------------------+
-| ユーザーID       |
-+------------------+
-## association
-- belongs_to :users
-- has_many :items
-- belongs_to :purchases
-
-## categories テーブル
-+------------------+
-|    カテゴリー    |type       |options                       |
-+------------------+
-| カテゴリー名     |
-| 商品ID           |
-+------------------+
-## association
-- has_many :item_categories
-- has_many :items , through: :item_categories
-
 ## purchases テーブル
-+------------------+
-|  購入            |type       |options                       |
-+------------------+
-| 購入者ID         |
-| 商品ID           |
-| クレジットカードID|
-| 発送先住所ID     |
-+------------------+
++--------------------+------------+-------------------+
+|  purchases         | type       | options           | <!-- 購入 >
++--------------------+------------+-------------------+
+| item               | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
++--------------------+------------+-------------------+
 ## association
-- belongs_to :items
-- belongs_to :sellers
-- belongs_to :buyers
-- has_one :credit_cards
-- has_one :addresses
+- belongs_to :item
+- belongs_to :user
+- has_one :shipping_address
 
-## credit_cards テーブル
-+------------------+
-| クレジットカード |type       |options                       |
-+------------------+
-| カード番号       |
-| 有効期限         |
-| セキュリティコード|
-+------------------+
+## sipping_addresses テーブル
++------------------+------------+-------------------+
+|sipping_addresses | type       | options           |
++------------------+------------+-------------------+
+| postal_code      | string     | null: false       |
+| send_origin_id   | integer    | null: false       | <!-- 発送元の地域 >
+| city             | string     | null: false       |
+| street_address   | string     | null: false       | <!-- 地番 >
+| building         | string     |                   |
+| phone_number     | string     | null: false       |
+| purchase        | references | null: false, foreign_key: true |
++------------------+------------+-------------------+
 ## association
-- bellongs_to : purchases
-
-## addresses テーブル
-+------------------+
-| 発送先住所       |type       |options                       |
-+------------------+
-| 郵便番号         |
-| 都道府県         |
-| 市区町村         |
-| 番地             |
-| 建物名           |
-| 電話番号         |
-+------------------+
-## association
-- bellongs_to : purchases
-
-## comments テーブル
-+------------------+
-| コメント         |type       |options                       |
-+------------------+
-| テキスト         |
-| ユーザーID       |
-| 商品ID           |
-+------------------+
-## association
-- belohgs_to :users
-- belohgs_to :items
-
-## favorites テーブル
-+------------------+
-| お気に入り       |type       |options                       |
-+------------------+
-| ユーザーID       |
-| 商品ID           |
-+------------------+
-## association
-- belohgs_to :users
-- belohgs_to :items
-
-## item_categories テーブル
-+------------------+
-| 商品カテゴリー   |type       |options                       |
-+------------------+
-| 商品ID           |
-| カテゴリーID     |
-+------------------+
-## association
-- belongs_to :items
-- belongs_to :categories
+- bellongs_to : purchase
