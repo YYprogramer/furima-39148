@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, format: { with: /\A(?=.*?[a-zA-Z])(?=.*?\d)/ },confirmation: true
   validates :family_name_kanji, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
   validates :given_name_kanji, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
-  validates :family_name_kana, presence: true, format: { with: /\A[ァ-ン]+\z/ }
-  validates :given_name_kana, presence: true, format: { with: /\A[ァ-ン]+\z/ }
+  validates :family_name_kana, presence: true, format: { with: /\A[ァ-ヶー]+\z/ }
+  validates :given_name_kana, presence: true, format: { with: /\A[ァ-ヶー]+\z/ }
   validates :birthday, presence: true
 end
