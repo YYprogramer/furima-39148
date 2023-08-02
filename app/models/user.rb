@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
 
   validates :nickname, presence: true
-  validates :password, length: { minimum: 6 }, format: { with: /\A(?=.*?[a-zA-Z])(?=.*?\d)/ },confirmation: true
+  validates :password, length: { minimum: 6 }, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i },confirmation: true
   validates :family_name_kanji, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
   validates :given_name_kanji, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
   validates :family_name_kana, presence: true, format: { with: /\A[ァ-ヶー]+\z/ }
