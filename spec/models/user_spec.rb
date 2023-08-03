@@ -100,6 +100,37 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Given name kana is invalid")
       end
+      it 'family_name_kanjiが空だと保存できない' do
+        @user.family_name_kanji = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family name kanji is invalid")
+      end
+      it 'given_name_kanjiが空だと保存できない' do
+        @user.given_name_kanji = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Given name kanji is invalid")
+      end
+      it 'family_name_kanjiに半角文字が含まれていると保存できない' do
+        @user.family_name_kanji = 'ｱ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family name kanji is invalid")
+      end
+      it 'given_name_kanjiに半角文字が含まれていると保存できない' do
+        @user.given_name_kanji = 'ｱ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Given name kanji is invalid")
+      end
+      it 'family_name_kanaが空だと保存できない' do
+        @user.family_name_kana = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family name kana is invalid")
+      end
+      it 'given_name_kanaが空だと保存できない' do
+        @user.given_name_kana = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Given name kana is invalid")
+      end
+      
       it 'birthdayが空では保存できない' do
         @user.birthday = ''
         @user.valid?
