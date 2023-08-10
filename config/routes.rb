@@ -5,4 +5,6 @@ Rails.application.routes.draw do
     sign_up: 'signup'
   }
   root to: 'furimas#index'
+
+  resources :items, only: [:index, :new, :create]
 end
