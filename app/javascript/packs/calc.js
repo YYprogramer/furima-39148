@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const price = parseFloat(priceInput.value);
     if (!isNaN(price)) {
       const tax = Math.floor(price * 0.1);
-      const profitAmount = price - tax;
+      const profitAmount = Math.floor(price - tax);
 
       addTaxPrice.textContent = tax.toFixed(0);
       profit.textContent = profitAmount.toFixed(0);
