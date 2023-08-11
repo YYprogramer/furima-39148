@@ -10,4 +10,6 @@ class Item < ApplicationRecord
 
   validates :image, presence: true
   validates :category_id, :condition_id, :send_cost_id, :send_origin_id, :send_time_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :price, presence: true,numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is invalid"},
+  format: { with: /\A\d+\z/ }
 end
