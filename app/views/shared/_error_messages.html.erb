@@ -1,8 +1,12 @@
 <% if model.errors.any? %>
 <div class="error-alert">
   <ul>
+    <% displayed_messages = Set.new %>
     <% model.errors.full_messages.each do |message| %>
-    <li class='error-message'><%= message %></li>
+      <% unless displayed_messages.include?(message) %>
+        <li class='error-message'><%= message %></li>
+        <% displayed_messages << message %>
+      <% end %>
     <% end %>
   </ul>
 </div>
