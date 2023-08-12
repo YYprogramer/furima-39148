@@ -1,6 +1,6 @@
 class FurimasController < ApplicationController
   def index
-    @items = Item.all.order(created_at: :desc)
+    @items = Item.all
     render 'items/index'
   end
 
