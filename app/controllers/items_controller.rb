@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   def create
     @item = current_user.items.build(item_params)
     if @item.save
-      redirect_to items_path(@item)
+      redirect_to action: 'index'
     else
       render :new
     end
