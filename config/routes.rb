@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     sign_out: 'logout',
     sign_up: 'signup'
   }
-  root to: 'furimas#index'
+  root to: 'items#index'
 
   resources :items, only: [:index, :new, :create]
 end
