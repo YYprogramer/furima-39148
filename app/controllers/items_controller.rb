@@ -21,11 +21,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item
   end
 
   def edit
-    @item
     if @item.user != current_user
       redirect_to root_path
     end
