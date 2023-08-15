@@ -1,0 +1,2 @@
+class SippingAddress < ApplicationRecord
+end
