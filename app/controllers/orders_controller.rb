@@ -1,11 +1,11 @@
 class OrdersController < ApplicationController
   def index
-    @item = Item.find(params[:id])
-    @order_form = OrderFprm.new
+    @item = Item.find(params[:item_id])
+    @order_form = OrderForm.new
   end
 
   def create
-    @item = Item.find(params[:id])
+    @item = Item.find(params[:item_id])
     @order_form = OrderFprm.new(order_params)
     if @order_form.valid?
       redirect_to item_path(@item)
