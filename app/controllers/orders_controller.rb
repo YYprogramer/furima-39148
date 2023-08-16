@@ -1,21 +1,22 @@
 class OrdersController < ApplicationController
   def index
-    @order = Order.new
+    @item = Item.find(params[:id])
+    @order_form = OrderFprm.new
   end
 
   def create
-        @order = Order.new(order_params)
-    if @order.valid?
-      @order.save
-      return redirect_to root_path
+    @item = Item.find(params[:id])
+    @order_form = OrderFprm.new(order_params)
+    if @order_form.valid?
+      redirect_to item_path(@item)
     else
-      render 'index'
+      render :index
     end
   end
 
   private
 
   def order_params
-    params.require(:order).permit(:price)
+    params.require(:order_form).permit(:user_id, :item_id)
   end
 end
