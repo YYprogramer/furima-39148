@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   }
   root to: 'items#index'
 
-  resources :items, do
-    references :orders, omly [:index, :create]
+  resources :items do
+      resources :orders, omly: [:index, :create]
   end
 end
