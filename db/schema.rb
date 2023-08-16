@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_15_194954) do
+ActiveRecord::Schema.define(version: 2023_08_15_201821) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -62,6 +62,19 @@ ActiveRecord::Schema.define(version: 2023_08_15_194954) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "shipping_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "postal_code", null: false
+    t.integer "send_origin_id", null: false
+    t.string "city", null: false
+    t.string "street_address", null: false
+    t.string "building"
+    t.string "phone_number", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_shipping_addresses_on_item_id"
+  end
+
   create_table "sipping_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
     t.integer "send_origin_id", null: false
@@ -97,5 +110,6 @@ ActiveRecord::Schema.define(version: 2023_08_15_194954) do
   add_foreign_key "items", "users"
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "users"
+  add_foreign_key "shipping_addresses", "items"
   add_foreign_key "sipping_addresses", "items"
 end
