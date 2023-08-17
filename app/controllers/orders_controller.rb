@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
 
   def create
     @item = Item.find(params[:item_id])
-    @order_form = OrderFprm.new(order_params)
+    @order_form = OrderForm.new(order_params)
     if @order_form.valid?
       redirect_to item_path(@item)
     else
