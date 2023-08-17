@@ -1,14 +1,14 @@
 const pay = () => {
-  const payjp = PayjpPayjp(process.env.PAYJP_PUBLIC_KEY);
+  const payjp = Payjp(process.env.PAYJP_PUBLIC_KEY);
   const elements = payjp.elements();
   const numberElement = elements.create('cardNumber');
-  const expiryElement = elements.create('cardExpMonth');
-  const expiryElement = elements.create('cardExpYear');
+  const expiryMonthElement = elements.create('cardExpiry');
+  const expiryYearElement = elements.create('cardExpiry');
   const cvcElement = elements.create('cardCvc');
 
   numberElement.mount('#card-number');
-  expiryElement.mount('#card-exp-month');
-  expiryElement.mount('#card-exp-year');
+  expiryMonthElement.mount('#card-exp-month');
+  expiryYearElement.mount('#card-exp-year');
   cvcElement.mount('#card-cvc');
 
   const submit = document.getElementById("button");
