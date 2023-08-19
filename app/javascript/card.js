@@ -2,8 +2,8 @@ const pay = () => {
   const payjp = Payjp(process.env.PAYJP_PUBLIC_KEY);
   const elements = payjp.elements();
   const numberElement = elements.create('cardNumber');
-  const expiryMonthElement = elements.create('cardExpiry');
-  const expiryYearElement = elements.create('cardExpiry');
+  const expiryMonthElement = elements.create('cardExpMonth');
+  const expiryYearElement = elements.create('cardExpYear');
   const cvcElement = elements.create('cardCvc');
 
   numberElement.mount('#card-number');
@@ -24,7 +24,8 @@ const pay = () => {
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
       }
       numberElement.clear();
-      expiryElement.clear();
+      expiryMonthElement.clear();
+      expiryYearElement.clear();
       cvcElement.clear();
       document.getElementById("charge-form").submit();
     });
