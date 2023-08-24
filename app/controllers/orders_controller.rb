@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order_form).permit(:number_form, :expiry_form, :cvc_form,:postal_code, :send_origin_id, :city, :street_address,:building, :phone_number, :user_id, :item_id, :token, :price)
+    params.require(:order_form).permit(:number_form, :expiry_form, :cvc_form,:postal_code, :send_origin_id, :city, :street_address, :building, :phone_number, :user_id, :item_id, :token, :price)
   end
 
   def pay_item
