@@ -15,7 +15,7 @@ class OrderForm
   def save(user_id:,item_id:)
     if valid?
         order = Order.create(user_id: user_id, item_id: item_id)
-        shipping_address = ShippingAddress.create(postal_code: postal_code, send_origin_id: send_origin_id, city: city, street_address: street_address, building: building, phone_number: phone_number, item_id: item_id)
+        shipping_address = ShippingAddress.create(postal_code: postal_code, send_origin_id: send_origin_id, city: city, street_address: street_address, building: building, phone_number: phone_number)
       true
     else
       false
