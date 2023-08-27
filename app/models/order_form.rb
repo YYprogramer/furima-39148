@@ -12,7 +12,7 @@ class OrderForm
   validates :token, presence: true
 
 
-  def save(user_id:,item_id:)
+  def save
     if valid?
         order = Order.create(user_id: user_id, item_id: item_id)
         shipping_address = ShippingAddress.create(
@@ -23,9 +23,6 @@ class OrderForm
           building: building, 
           phone_number: phone_number, 
           order_id: order.id)
-      true
-    else
-      false
     end
   end
 end
