@@ -9,11 +9,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order_form = OrderForm.new(order_params)
-    @order_form.user_id = current_user.id
-    @order_form.item_id = @item.id
-    @order_form.token = params[:token]
-
+    @order_form = OrderForm.new(order_params.marge(user_id: current_user.id, item_id: @item.id, token: params[:token]))
     if @order_form.valid?
       pay_item
       order = @order_form.save(user_id: current_user.id, item_id: @item.id)
