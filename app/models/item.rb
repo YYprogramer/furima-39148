@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to :send_time
   belongs_to :user
   has_one_attached :image
-  has_many :orders
+  has_one :orders
 
   validates :image, :name, :description, presence: true
   validates :category_id, :condition_id, :send_cost_id, :send_origin_id, :send_time_id, numericality: { other_than: 1 , message: "can't be blank"}
