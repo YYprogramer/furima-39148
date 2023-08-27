@@ -1,8 +1,7 @@
 class OrdersController < ApplicationController
-  before_action :redirect_unauthenticated_user,:redirect_own_item, only: :index
+  before_action :redirect_unauthenticated_user,:redirect_own_item, :set_item,only: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
     @order_form = OrderForm.new
     if user_signed_in? && @item.user != current_user && @item.sold_out?
       redirect_to root_path
@@ -10,7 +9,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order_form = OrderForm.new(order_params)
     @order_form.user_id = current_user.id
     @order_form.item_id = @item.id
@@ -28,21 +26,20 @@ class OrdersController < ApplicationController
   private
 
     def redirect_own_item
-    @item = Item.find(params[:item_id])
     if user_signed_in? && current_user == @item.user
       redirect_to root_path
     end
   end
 
   def redirect_unauthenticated_user
-    @item = Item.find(params[:item_id])
+    set_item
     if !user_signed_in?
       redirect_to new_user_session_path
     end
   end
 
   def order_params
-    params.require(:order_form).permit(:number_form, :expiry_form, :cvc_form,:postal_code, :send_origin_id, :city, :street_address, :building, :phone_number, :order_id, :user_id, :item_id, :token, :price)
+    params.require(:order_form).permit(:number_form, :expiry_form, :cvc_form,:postal_code, :send_origin_id, :city, :street_address, :building, :phone_number, :order_id, :user_id, :item_id, :token)
   end
 
   def pay_item
@@ -52,5 +49,9 @@ class OrdersController < ApplicationController
       card: @order_form.token,
       currency: 'jpy'
     )
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 end
