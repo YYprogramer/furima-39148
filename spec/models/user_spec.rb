@@ -10,7 +10,8 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
       end
       it 'passwordが小文字の英語と数字を含む6文字以上なら保存できる' do
-        @user.password = 'abc123'
+        @user.password = 'abc123' 
+        @user.password_confirmation = 'abc123'
         expect(@user).to be_valid
       end
       it 'family_name_kanjiが平仮名・カタカナ・漢字なら保存できる' do
