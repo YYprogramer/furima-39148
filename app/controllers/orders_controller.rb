@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     @order_form = OrderForm.new(order_params.marge(user_id: current_user.id, item_id: @item.id, token: params[:token]))
     if @order_form.valid?
       pay_item
-      order = @order_form.save(user_id: current_user.id, item_id: @item.id)
+      order = @order_form.save
       redirect_to root_path
     else
       render :index
