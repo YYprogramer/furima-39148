@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
 
   def index
-    @items = Item.order(created_at: :desc)
+    @items = Item.includes(:order).order(created_at: :desc)
   end
 
   def new
@@ -21,10 +21,14 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @items = Item.includes(:orders)
   end
 
   def edit
     if @item.user != current_user
+      redirect_to root_path
+    end
+    if @item.user == current_user && @item.sold_out?
       redirect_to root_path
     end
   end

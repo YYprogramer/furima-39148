@@ -36,9 +36,9 @@
 - has_one :purchase
 - has_one_attached :image
 
-## purchases テーブル
+## orders テーブル
 +--------------------+------------+-------------------+
-|  purchases         | type       | options           | <!-- 購入 >
+|  orders         | type       | options           | <!-- 購入 >
 +--------------------+------------+-------------------+
 | item               | references | null: false, foreign_key: true |
 | user               | references | null: false, foreign_key: true |
@@ -58,7 +58,7 @@
 | street_address   | string     | null: false       | <!-- 地番 >
 | building         | string     |                   |
 | phone_number     | string     | null: false       |
-| purchase        | references | null: false, foreign_key: true |
+| order        | references | null: false, foreign_key: true |
 +------------------+------------+-------------------+
 ## association
-- bellongs_to : purchase
+- belongs_to : order
