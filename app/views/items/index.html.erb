@@ -76,10 +76,11 @@
 
   <%# 商品一覧 %>
   <div class='item-contents'>
-    <h2 class='title'>ピックアップカテゴリー</h2>
+    <h2 class='title'>商品紹介</h2>
     <div class="subtitle" >
-      新規投稿商品
+      取扱商品の一覧表です。
     </div>
+    <p>※注文状況や時期によって、発送に時間を要する場合がございます。お急ぎの場合はお問い合わせフォームからご一報ください。</p>
     <ul class='item-lists'>
       <% new_items = @items.order(created_at: :desc).limit(3) %>
       <% if new_items.present? %>
@@ -110,26 +111,13 @@
           </li>
         <% end %>
       <% else %>
-        <li class='list'>
-          <%= link_to '#' do %>
-          <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
-          <div class='item-info'>
-            <h3 class='item-name'>
-              商品を出品してね！
-            </h3>
-            <div class='item-price'>
-              <span>99999999円<br>(税込み)</span>
-              <div class='star-btn'>
-                <%= image_tag "star.png", class:"star-icon" %>
-                <span class='star-count'>0</span>
-              </div>
-            </div>
-          </div>
-          <% end %>
-        </li>
       <% end %>
     </ul>
   </div>
   <%# /商品一覧 %>
+  <%# 農地案内 %>
+  <%# /農地案内 %>
+  <%# お問い合わせ %>
+  <%# /お問い合わせ %>
 </div>
 <%= render "shared/footer" %>
