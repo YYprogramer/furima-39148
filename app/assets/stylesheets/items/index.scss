@@ -121,8 +121,7 @@ a {
 
 /* //きつきパパイヤ農園の３つの特徴 */
 
-
-/* 画面中央の「商品紹介」帯部分*/
+/* コンセプト*/
 .ad-contents {
   width: 100vw;
   background-image: image-url('furima-header02.png');
@@ -162,7 +161,65 @@ a {
   height: 9vh;
 }
 
-/* //画面中央の「商品紹介」帯部分 */
+/* //コンセプト */
+
+/* 商品紹介 */
+.select-reason-contents {
+  padding: 5vh 15vw;
+}
+
+.select-reason-contents>.title {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-bottom: 5vh;
+  position: relative;
+}
+
+.select-reason-contents>.title::after {
+  content: '';
+  width: 70px;
+  height: 4px;
+  background-color: #d67425;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.reason-lists {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.reason-lists>.list-items {
+  width: 33vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.list-pict {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.reason-list-text-item {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 50px;
+}
+
+.reason-list-description-item {
+  font-size: 16px;
+  margin: 2px 0 30px 0;
+}
+
+/* //商品紹介 */
+
+
 
 /* 商品一覧 */
 
