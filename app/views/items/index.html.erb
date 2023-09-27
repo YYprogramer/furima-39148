@@ -102,84 +102,42 @@
         </p>
       </li>
     </ul>
-    <ul class='reason-lists'>
+    <ul class='reason-lists-2'>
       <li class='list-items'>
         <%= image_tag "papaya-intro02.jpg", class:"list-pict" %>
         <h3 class='reason-list-text-item'>
-          パパイヤキムチ（１００グラム）
+          パパイヤの木<br>オーナー権（１本）
         </h3>
         <p class='reason-list-description-item'>
-          １，０００円（税込・送料別）
+          １２，０００円／年（税込・送料別）
         </p>
       </li>
-      <li class='list'>
+      <li class='list-items'>
         <%= image_tag "papaya-intro02.jpg", class:"list-pict" %>
         <h3 class='reason-list-text-item'>
-          パパイヤキムチ（４００グラム）
+          パパイヤの木<br>オーナー権（５本）
         </h3>
         <p class='reason-list-description-item'>
-          ３，５００円（税込・送料別）
-        </p>
-      </li>
-      <li class='list'>
-        <%= image_tag "papaya-intro02.jpg", class:"list-pict" %>
-        <h3 class='reason-list-text-item'>
-          パパイヤの果実
-        </h3>
-        <p class='reason-list-description-item'>
-          １，０００円（税込・送料別）
+          ５０，０００円／年（税込・送料別）
         </p>
       </li>
     </ul>
   </div>
-  <%# /商品一覧 %>
-
-  <%# 商品一覧 %>
-  <div class='item-contents'>
-    <h2 class='title'>商品紹介</h2>
-    <div class="subtitle" >
-      取扱商品の一覧表です。
-    </div>
-    <p>※注文状況や時期によって、発送に時間を要する場合がございます。お急ぎの場合はお問い合わせフォームからご一報ください。</p>
-    <ul class='item-lists'>
-      <% new_items = @items.order(created_at: :desc).limit(3) %>
-      <% if new_items.present? %>
-        <% new_items.each do |item| %>
-          <li class='list'>
-            <%= link_to item_path(item) do %>
-              <div class='item-img-content'>
-                <%= image_tag item.image, class: "item-img" %>
-                <% if item.sold_out? %>
-                  <div class='sold-out'>
-                    <span>Sold Out!!</span>
-                  </div>
-                <% end %>
-              </div>
-              <div class='item-info'>
-                <h3 class='item-name'>
-                  <%= item.name %>
-                </h3>
-                <div class='item-price'>
-                  <span><%= item.price %>円<br><%= item.send_cost.name %></span>
-                  <div class='star-btn'>
-                    <%= image_tag "star.png", class:"star-icon" %>
-                  <span class='star-count'>0</span>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </li>
-        <% end %>
-      <% else %>
-      <% end %>
-    </ul>
-  </div>
-  <%# /商品一覧 %>
 
   <%# 農地案内 %>
+  <div class= "map">
+    <h2 class="title">
+    農地案内
+    </h2>
+  </div>
   <%# /農地案内 %>
   
   <%# お問い合わせ %>
+  <div class= "connect">
+    <h2 class="title">
+    お問い合わせ
+    </h2>
+  </div>
   <%# /お問い合わせ %>
 </div>
 <%= render "shared/footer" %>
