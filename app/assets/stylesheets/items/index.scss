@@ -124,7 +124,7 @@ a {
 /* コンセプト*/
 .ad-contents {
   width: 100vw;
-  background-image: image-url('furima-header02.png');
+  background-image: image-url('papaya-obi.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -147,19 +147,16 @@ a {
   line-height: 30px;
 }
 
-.store-btn {
-  display: flex;
-  margin-top: 24px;
+.concept-contents {
+  margin: 50px 0 30px 205px;
 }
 
-.apple-btn {
-  margin-right: 1vw;
-  height: 9vh;
+.concept-content {
+  margin-bottom: 30px;
 }
 
-.google-btn {
-  height: 9vh;
-}
+
+
 
 /* //コンセプト */
 
