@@ -6,10 +6,11 @@ a {
   background: #f8f8f8;
 }
 
-/* 画面上部の「人生を変えるフリマアプリ」帯部分 */
+/* 画面上部の「杵築で織りなす逸品」帯部分 */
 .title-contents {
   width: 100vw;
-  background-image: image-url('furima-header01.png');
+  height: 80vh;
+  background-image: image-url('papaya-header.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -45,9 +46,9 @@ a {
   height: 9vh;
 }
 
-/* //画面上部の「人生を変えるフリマアプリ」帯部分 */
+/* //画面上部の「杵築で織りなす逸品」帯部分 */
 
-/* FURIMAが選ばれる3つの理由部分 */
+/* きつきパパイヤ農園の３つの特徴 */
 .select-reason-contents {
   padding: 5vh 15vw;
 }
@@ -64,7 +65,7 @@ a {
   content: '';
   width: 70px;
   height: 4px;
-  background-color: #3ccace;
+  background-color: #d67425;
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -83,6 +84,16 @@ a {
   flex-direction: column;
   align-items: center;
   position: relative;
+  margin-bottom: 5vw;
+}
+
+.reason-lists>.list-2 {
+  width: 33vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin: 0 2vw 5vh 2vw;
 }
 
 .list-pict {
@@ -99,7 +110,7 @@ a {
   font-size: 30px;
   text-align: center;
   line-height: 60px;
-  background-color: #3ccace;
+  background-color: #d67425;
   color: #fff;
 }
 
@@ -110,7 +121,7 @@ a {
 }
 
 .reason-list-blue-text {
-  color: #3ccace;
+  color: #d67425;
 }
 
 .reason-list-description {
@@ -118,13 +129,12 @@ a {
   margin-top: 20px;
 }
 
-/* //FURIMAが選ばれる3つの理由部分 */
+/* //きつきパパイヤ農園の３つの特徴 */
 
-
-/* 画面中央の「会員数日本一位」帯部分*/
+/* コンセプト*/
 .ad-contents {
   width: 100vw;
-  background-image: image-url('furima-header02.png');
+  background-image: image-url('papaya-obi.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -132,7 +142,7 @@ a {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 5vh 15vw;
+  padding: 15vh 15vw;
   color: #fff;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
 }
@@ -147,28 +157,37 @@ a {
   line-height: 30px;
 }
 
-.store-btn {
-  display: flex;
-  margin-top: 24px;
+.concept-contents {
+  width: 70vw;
+  margin: 50px 0 70px 205px;
 }
 
-.apple-btn {
-  margin-right: 1vw;
-  height: 9vh;
+.concept-content {
+  margin-bottom: 5vh;
+  font-family: 'Noto Serif JP', serif;
 }
 
-.google-btn {
-  height: 9vh;
+.concept-top {
+  font-size: 30px;
+  text-decoration: underline;
+  font-weight: bold;
+  margin-bottom: 1vh;
 }
 
-/* //画面中央の「会員数日本一位」帯部分 */
+.concept-body {
+  font-size: 22px;
+}
 
-/* FURIMAの特徴 */
-.feature-contents {
+
+
+/* //コンセプト */
+
+/* 商品紹介 */
+.select-reason-contents {
   padding: 5vh 15vw;
 }
 
-.feature-contents>.title {
+.select-reason-contents>.title {
   text-align: center;
   font-size: 3.5vh;
   font-weight: bold;
@@ -176,42 +195,62 @@ a {
   position: relative;
 }
 
-.feature-contents>.title::after {
+.select-reason-contents>.title::after {
   content: '';
   width: 70px;
   height: 4px;
-  background-color: #3ccace;
+  background-color: #d67425;
   position: absolute;
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.feature-lists {
+.reason-lists {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
+.reason-lists-2 {
+  display: flex;
+  justify-content: space-around;
+}
 
-.feature-lists>.list {
+.reason-lists>.list-items {
   width: 33vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
-.feature-list-text {
+.reason-lists-2>.list-items {
+  width: 33vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.list-pict {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.reason-list-text-item {
   font-weight: bold;
-  font-size: 22px;
-  line-height: 50px;
+  font-size: 20px;
+  line-height: 30px;
 }
 
-.feature-list-description {
-  font-size: 18px;
-  margin-top: 20px;
+.reason-list-description-item {
+  font-size: 16px;
+  margin: 2px 0 100px 0;
 }
 
-/* //FURIMAの特徴 */
+/* //商品紹介 */
+
+
 
 /* 商品一覧 */
 
@@ -233,7 +272,7 @@ a {
   font-size: 3vh;
   margin: 1vh 0;
   text-decoration: none;
-  color: #3ccace;
+  color: #d67425;
   font-weight: bold;
 }
 
@@ -260,20 +299,6 @@ a {
   height: 33vh;
 }
 
-.sold-out {
-  position: absolute;
-  top: 40%;
-  width: 100%;
-  text-align: center;
-  background-color: crimson;
-  transform: skewY(-10deg);
-}
-
-.sold-out>span {
-  color: #FFF;
-  font-size: 45px;
-  font: bold;
-}
 
 
 .item-info {
@@ -309,3 +334,103 @@ a {
 }
 
 /* //商品一覧 */
+
+// 農地紹介 */
+.map>.title {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-bottom: 5vh;
+  position: relative;
+}
+
+.map>.title::after {
+  content: '';
+  width: 70px;
+  height: 4px;
+  background-color: #d67425;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.map-body {
+  padding: 5vh 15vw;
+}
+
+.address {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.address-map {
+  width: 70vw;
+  height: 50vh;
+}
+
+/* // 農地紹介 */
+
+// お問い合わせ */
+
+.connect>.title {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-bottom: 5vh;
+  position: relative;
+}
+.connect>.title::after {
+  content: '';
+  width: 70px;
+  height: 4px;
+  background-color: #d67425;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.connect-body {
+  padding: 5vh 15vw;
+  font-size: 24px;
+}
+
+/* お名前入力欄の角を丸める */
+#name {
+  width: 30vw;
+  border: 1px solid #ccc; /* ボーダーを追加 */
+  border-radius: 5px; /* 角を丸める */
+}
+
+/* メールアドレス入力欄の角を丸める */
+#email {
+  width: 30vw;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* メッセージ入力欄の角を丸める */
+#message {
+  width: 70vw;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.send-btn {
+  background-color: #f6994d;
+  color: #3b3535;
+  border: none;
+  padding: 10px 40px;
+  margin: 0 auto;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* ボタンにホバー時のスタイルを追加（オプション） */
+.send-btn:hover {
+  background-color: #ff5500; /* ホバー時の背景色を変更 */
+  color: #ffffff; /* ホバー時のテキスト色を変更 */
+}
+
+/* // お問い合わせ */
