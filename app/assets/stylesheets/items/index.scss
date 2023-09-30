@@ -87,6 +87,15 @@ a {
   margin-bottom: 5vw;
 }
 
+.reason-lists>.list-2 {
+  width: 33vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin: 0 2vw 5vh 2vw;
+}
+
 .list-pict {
   margin-bottom: 20px;
   width: 100%;
@@ -290,20 +299,6 @@ a {
   height: 33vh;
 }
 
-.sold-out {
-  position: absolute;
-  top: 40%;
-  width: 100%;
-  text-align: center;
-  background-color: crimson;
-  transform: skewY(-10deg);
-}
-
-.sold-out>span {
-  color: #FFF;
-  font-size: 45px;
-  font: bold;
-}
 
 
 .item-info {
@@ -396,6 +391,46 @@ a {
   transform: translateX(-50%);
 }
 
-.
+.connect-body {
+  padding: 5vh 15vw;
+  font-size: 24px;
+}
+
+/* お名前入力欄の角を丸める */
+#name {
+  width: 30vw;
+  border: 1px solid #ccc; /* ボーダーを追加 */
+  border-radius: 5px; /* 角を丸める */
+}
+
+/* メールアドレス入力欄の角を丸める */
+#email {
+  width: 30vw;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* メッセージ入力欄の角を丸める */
+#message {
+  width: 70vw;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.send-btn {
+  background-color: #f6994d;
+  color: #3b3535;
+  border: none;
+  padding: 10px 40px;
+  margin: 0 auto;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* ボタンにホバー時のスタイルを追加（オプション） */
+.send-btn:hover {
+  background-color: #ff5500; /* ホバー時の背景色を変更 */
+  color: #ffffff; /* ホバー時のテキスト色を変更 */
+}
 
 /* // お問い合わせ */
